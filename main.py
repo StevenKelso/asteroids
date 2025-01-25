@@ -37,6 +37,10 @@ def main():
             if asteroid.collision(player):
                 print("Game over!")
                 running = False
+            for shot in shots:
+                if shot.collision(asteroid):
+                    asteroid.kill()
+                    shot.kill()
         pygame.display.flip()
 
         dt = clock.tick(60) / 1000
